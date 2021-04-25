@@ -90,7 +90,8 @@ class RusProfileParser:
                                                          address=address.text.strip(),
                                                          inn=inn,
                                                          create_date=create_date))
-
+                    else:
+                        return False
                 else:
                     return False
             return True
@@ -120,5 +121,6 @@ if __name__ == '__main__':
         _ = threading.Thread(target=experiment.parser, daemon=True)
         _.start()
     experiment.all_pages.join()
-    experiment.check_writable = False
     experiment.template_data.join()
+    experiment.check_writable = False
+    
