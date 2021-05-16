@@ -52,8 +52,8 @@ class RusProfileParser:
     def get_page(self, url):
         proxy = self.proxy.get_proxy()
         proxies = {
-            'http': {proxy[1]},
-            'https': {proxy[1]},
+            'http': f'{proxy[1]}',
+            'https': f'{proxy[1]}',
         }
         try:
             page = requests.get(url, headers=self.HEADER, proxies=proxies, timeout=10)
